@@ -3,8 +3,8 @@
 resource "aws_eks_node_group" "eks_ng" {
   cluster_name    = var.cluster_name
   node_group_name = "${var.cluster_name}-eks_ng"
-  node_role_arn   = aws_iam_role.node_group_role.arn
-  subnet_ids      = var.private.id
+  node_role_arn   = aws_eks_node_group.eks_ng.arn
+  subnet_ids      = data.aws_subnet.Private.id
 
   ami_type       = var.ami_type
   disk_size      = var.disk_size

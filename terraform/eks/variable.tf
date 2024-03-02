@@ -31,11 +31,6 @@ variable "instance_types" {
   type        = list(string)
 }
 
-variable "capacity_type" {
-  description = ""
-  type        = string
-}
-
 variable "key_pair" {
   description = "key pair"
   type        = string
