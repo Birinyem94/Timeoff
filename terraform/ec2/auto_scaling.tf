@@ -1,6 +1,6 @@
 resource "aws_launch_template" "template" {
   name_prefix   = "template"
-  image_id      = "ami-12345678"
+  image_id      = "ami-0440d3b780d96b29d"
   instance_type = var.instance_type
   key_name      = var.key_pair
 }
@@ -15,7 +15,7 @@ resource "aws_autoscaling_group" "main" {
   max_size                  = var.asg_max
   min_size                  = var.asg_min
   min_elb_capacity          = var.asg_min
-  vpc_zone_identifier       = aws_subnet.private[*].id
+  vpc_zone_identifier       = [data.aws_subnet.private[0].id, data.aws_subnet.private[1].id]
   default_instance_warmup   = 180
   health_check_grace_period = 600
   health_check_type         = "EC2"
@@ -42,7 +42,7 @@ resource "aws_autoscaling_policy" "high_cpu" {
   scaling_adjustment     = 4
   adjustment_type        = "ChangeInCapacity"
   cooldown               = 300
-  autoscaling_group_name = aws_autoscaling_group.main[count.index].name
+  autoscaling_group_name = aws_autoscaling_group.main.name
 }
 
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
@@ -58,10 +58,10 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   threshold           = "70"
 
   dimensions = {
-    AutoScalingGroupName = aws_autoscaling_group.main[count.index].name
+    AutoScalingGroupName = aws_autoscaling_group.main.name
   }
 
-  alarm_description = "CPU usage for ${aws_autoscaling_group.main[count.index].name} ASG"
+  alarm_description = "CPU usage for ${aws_autoscaling_group.main.name} ASG"
   alarm_actions     = [aws_autoscaling_policy.high_cpu[count.index].arn]
 }
 
@@ -72,7 +72,7 @@ resource "aws_autoscaling_policy" "low_cpu" {
   scaling_adjustment     = -1
   adjustment_type        = "ChangeInCapacity"
   cooldown               = 300
-  autoscaling_group_name = aws_autoscaling_group.main[count.index].name
+  autoscaling_group_name = aws_autoscaling_group.main.name
 }
 
 resource "aws_cloudwatch_metric_alarm" "low-cpu" {
@@ -88,28 +88,13 @@ resource "aws_cloudwatch_metric_alarm" "low-cpu" {
   threshold           = "35"
 
   dimensions = {
-    AutoScalingGroupName = aws_autoscaling_group.main[count.index].name
+    AutoScalingGroupName = aws_autoscaling_group.main.name
   }
 
-  alarm_description = "CPU usage for ${aws_autoscaling_group.main[count.index].name} ASG"
+  alarm_description = "CPU usage for ${aws_autoscaling_group.main.name} ASG"
   alarm_actions     = [aws_autoscaling_policy.low_cpu[count.index].arn]
 }
 
 ##
 # Autoscaling notifications
 ##
-resource "aws_autoscaling_notification" "asg_notifications" {
-  count = local.default
-
-  group_names = [
-    aws_autoscaling_group.main[count.index].name,
-  ]
-
-  notifications = [
-    "autoscaling:EC2_INSTANCE_LAUNCH",
-    "autoscaling:EC2_INSTANCE_TERMINATE",
-    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-  ]
-
-  topic_arn = aws_sns_topic.sns[count.index].arn
-}
