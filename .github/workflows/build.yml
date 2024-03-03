@@ -21,6 +21,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
         with:
+          aws_account_id: "891377060995"
           registry: 891377060995.dkr.ecr.us-east-1.amazonaws.com
 
       - name: Build Docker Image
