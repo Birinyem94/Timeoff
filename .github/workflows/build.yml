@@ -40,5 +40,8 @@ jobs:
           docker tag timeoff:latest ${{ steps.login-ecr.outputs.registry }}/timeoff:latest
           docker push ${{ steps.login-ecr.outputs.registry }}/timeoff:latest
 
-     
+      # Apply Kubernetes manifests
+      - name: Apply Kubernetes manifests
+        run: |
+          kubectl apply -f timeoff/deployment.yaml
 
