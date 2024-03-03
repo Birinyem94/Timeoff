@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeoff-deployment
+  labels:
+    app: timeoff
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: timeoff
+  template:
+    metadata:
+      labels:
+        app: timeoff
+    spec:
+      containers:
+      - name: timeoff-container
+        image: 891377060995.dkr.ecr.us-east-1.amazonaws.com/timeoff:latest
+        ports:
+        - containerPort: 3000  # Adjust the container port as needed
