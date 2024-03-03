@@ -4,7 +4,7 @@
 resource "aws_security_group" "default_egress" {
   name        = "default_egress"
   description = "Default Egress"
-  vpc_id      = module.vpc.aws_vpc.main.id
+  vpc_id      = data.aws_vpc.main.id
 
   tags = {
     Name = "${var.project_name}"
@@ -24,7 +24,7 @@ resource "aws_security_group_rule" "default_egress" {
 resource "aws_security_group" "admin_access_public" {
   name        = "admin_access_public"
   description = "Admin Access Public"
-  vpc_id      = module.main.id
+  vpc_id      = data.aws_vpc.main.id
 
   tags = {
     Name = "${var.project_name}"
@@ -44,7 +44,7 @@ resource "aws_security_group_rule" "admin_access_public_ssh" {
 resource "aws_security_group" "admin_access_private" {
   name        = "admin_access_private"
   description = "Admin Access Private"
-  vpc_id      = module.my_vpc.vpc_id
+  vpc_id      = data.aws_vpc.main.id
 
   tags = {
     Name = "${var.project_name}"

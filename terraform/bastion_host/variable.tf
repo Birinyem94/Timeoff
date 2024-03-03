@@ -11,7 +11,7 @@ variable "key_pair" {
 }
 
 variable "ami_type" {
-  default = "ami-9a562df2"
+  default = "ami-0440d3b780d96b29d"
 }
 
 variable "vpc_cidr_block" {
@@ -23,4 +23,10 @@ variable "project_name" {
   description = "name of project"
   type        = string
   default     = "timeoff"
+}
+
+variable "public_subnet_cidr_blocks" {
+  description = "VPC Public Subnets"
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
