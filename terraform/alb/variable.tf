@@ -1,4 +1,11 @@
-variable "ssl_certificate_arn" {
-  type    = string
-  default = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"
+variable "public_subnet_cidr_blocks" {
+  description = "VPC Public Subnets"
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+  
+variable "aws_security_group" {
+  description = "security group"
+  type = string
+  default = ""
 }
