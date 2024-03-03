@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  AWS_REGION: us-east-1
+
 jobs:
   build:
     name: Build Docker Image
@@ -18,7 +21,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
         with:
-          aws_region: 'us-east-1'
           registry: 891377060995.dkr.ecr.us-east-1.amazonaws.com
 
       - name: Build Docker Image
