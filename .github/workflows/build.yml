@@ -49,6 +49,7 @@ jobs:
           else
           mkdir -p ~/.kube
           touch ~/.kube/config
+          fi
 
       # Apply Kubernetes manifests
       - name: Apply Kubernetes manifests
