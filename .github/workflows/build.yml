@@ -18,8 +18,8 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
         with:
+          aws_region: 'us-east-1'
           registry: 891377060995.dkr.ecr.us-east-1.amazonaws.com
-          region: us-east-1
 
       - name: Build Docker Image
         run: |
