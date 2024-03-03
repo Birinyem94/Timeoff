@@ -54,5 +54,5 @@ jobs:
       # Apply Kubernetes manifests
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f Timeoff/Deployment.yaml
+          kubectl apply -f Deployment.yaml
 
