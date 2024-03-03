@@ -3,7 +3,7 @@ resource "aws_security_group" "eks_node_group_sg" {
 
   name        = "${var.cluster_name}-worker-nodes-sg"
   description = "Custom security group for worker nodes"
-  vpc_id      = var.aws_vpc.main.id
+  vpc_id      = data.aws_vpc.main.id
 
   ingress {
     description = "allow all ports between nodes"
@@ -35,7 +35,7 @@ resource "aws_security_group" "eks_node_group_sg" {
 resource "aws_security_group" "eks_cluster_sg" {
   name        = "${var.cluster_name}-control-plane"
   description = "Custom security group for CP"
-  vpc_id      = var.aws_vpc.main.id
+  vpc_id      = data.aws_vpc.main.id
 
   ingress {
     description = "allow all ports from services"

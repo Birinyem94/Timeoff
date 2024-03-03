@@ -73,3 +73,19 @@ variable "cluster_endpoint_public_access_cidrs" {
 
 # EKS Node Group Variables
 ## Placeholder space you can create if required
+
+variable "private_subnet_cidr_blocks" {
+  description = "VPC Private Subnets"
+  type        = list(string)
+  default     = ["10.0.3.0/24", "10.0.4.0/24"]
+}
+
+#AWS-auth Configmap roles
+variable "eks_roles" {
+  description = "IAM roles to add to the EKS aws-auth config maps"
+  type = list(object({
+    role_arn  = string
+    username = string
+    groups   = list(string)
+  }))
+}
