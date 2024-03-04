@@ -38,7 +38,7 @@ jobs:
 
       - name: Push Docker Image to Amazon ECR
         run: |
-          docker tag timeoff:latest ${{ steps.login-ecr.outputs.registry }}/image:latest
+          docker tag timeoff:latest ${{ steps.login-ecr.outputs.registry }}/timeoff:latest
           docker push ${{ steps.login-ecr.outputs.registry }}/timeoff:latest
 
       - name: Configure kubeConfig
