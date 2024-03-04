@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: timeoff-deployment
+  name: timeoff-app
   labels:
-    app: timeoff
+    app: timeoff-app
 spec:
   replicas: 1  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: timeoff
+      app: timeoff-app
   template:
     metadata:
       labels:
-        app: timeoff
+        app: timeoff-app
     spec:
       containers:
-      - name: timeoff-container
+      - name: my-timeoff-app
         image: image:latest
         ports:
         - containerPort: 3000  # Adjust the container port as needed
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pimeoff-off-svc
+  name: timeoff-app-svc
 spec:
   selector:
-    app: python-app
+    app: timeoff-app
   ports:
     - protocol: TCP
       port: 80
