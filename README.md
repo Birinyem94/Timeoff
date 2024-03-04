@@ -15,13 +15,15 @@ Security Groups: For controlling inbound and outbound traffic.
 Auto Scaling: AWS Auto Scaling for ensuring HA and scalability.
 Monitoring: AWS CloudWatch for monitoring the infrastructure and application logs.
 
-SSL Termination: AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM--in progress
+
+<img width="1356" alt="Screen Shot 2024-03-04 at 6 58 34 AM" src="https://github.com/Birinyem94/Timeoff/assets/120755263/94b08523-fcdf-45a7-98a3-d67fbce97be1">
 
 
 Challenges Faced:
-Getting the right version for some of the application dependencies 
+AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM, i was not approved for one but i managed to get it sorted 
+how to create an organization and gain access into the app 
 SSL Certificate: Obtaining an SSL certificate for your application and configuring it for use with a load balancer proved challenging, especially that i encountered issues with domain validation or DNS configuration.
-
+SSL Termination: AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM--in progress
 Improvements:
 Timeoff App: updated version
 Documentation: I should Document the project setup, including AWS configurations, CI/CD pipeline steps, Kubernetes resources, and SSL certificate management. This will help clarify the setup process and troubleshoot issues more effectively.
