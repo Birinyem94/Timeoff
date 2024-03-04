@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: timeoff-container
-        image: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff-ecr-repo
+        image: image:latest
         ports:
         - containerPort: 3000  # Adjust the container port as needed
 
