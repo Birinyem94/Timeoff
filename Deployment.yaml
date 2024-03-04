@@ -19,6 +19,10 @@ spec:
         image: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff
         ports:
         - containerPort: 3000  # Adjust the container port as needed
+        resources:
+          limits:
+            cpu: "0.5"  # Adjust as needed
+            memory: "512Mi"  # Adjust as needed
 
 ---
 apiVersion: v1
