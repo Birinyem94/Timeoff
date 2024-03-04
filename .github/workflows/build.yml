@@ -32,7 +32,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
         with:
-          registry: 891377060995.dkr.ecr.us-east-1.amazonaws.com/timeoff
+          registry: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff-ecr-repo
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
