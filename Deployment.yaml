@@ -16,6 +16,20 @@ spec:
     spec:
       containers:
       - name: timeoff-container
-        image: 891377060995.dkr.ecr.us-east-1.amazonaws.com/timeoff:latest
+        image: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff-ecr-repo
         ports:
         - containerPort: 3000  # Adjust the container port as needed
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pimeoff-off-svc
+spec:
+  selector:
+    app: python-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
