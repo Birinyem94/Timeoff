@@ -22,8 +22,8 @@ Monitoring: AWS CloudWatch for monitoring the infrastructure and application log
 Challenges Faced:
 AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM, i was not approved for one but i managed to get it sorted 
 how to create an organization and gain access into the app 
-SSL Certificate: Obtaining an SSL certificate for your application and configuring it for use with a load balancer proved challenging, especially that i encountered issues with domain validation or DNS configuration.
-SSL Termination: AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM--in progress
+pod crashing at some point
+
 Improvements:
 Timeoff App: updated version
 Documentation: I should Document the project setup, including AWS configurations, CI/CD pipeline steps, Kubernetes resources, and SSL certificate management. This will help clarify the setup process and troubleshoot issues more effectively.
