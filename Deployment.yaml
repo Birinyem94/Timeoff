@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: timeoff-app
+  name: timeoff
   labels:
-    app: timeoff-app
+    app: timeoff
 spec:
   replicas: 1  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: timeoff-app
+      app: timeoff
   template:
     metadata:
       labels:
-        app: timeoff-app
+        app: timeoff
     spec:
       containers:
-      - name: my-timeoff-app
+      - name: alpine_timeoff
         image: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff
         ports:
         - containerPort: 3000  # Adjust the container port as needed
