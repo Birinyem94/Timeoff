@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest .
 
     steps:
       - name: Checkout Repository
@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t image:latest 
+          docker build -t timeoff:latest 
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -38,8 +38,8 @@ jobs:
 
       - name: Push Docker Image to Amazon ECR
         run: |
-          docker tag image:latest ${{ steps.login-ecr.outputs.registry }}/image:latest
-          docker push ${{ steps.login-ecr.outputs.registry }}/image:latest
+          docker tag timeoff:latest ${{ steps.login-ecr.outputs.registry }}/image:latest
+          docker push ${{ steps.login-ecr.outputs.registry }}/timeoff:latest
 
       - name: Configure kubeConfig
         run: |
