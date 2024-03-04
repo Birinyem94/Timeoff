@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-timeoff-app
-        image: image:latest
+        image: 975050107562.dkr.ecr.us-east-1.amazonaws.com/timeoff
         ports:
         - containerPort: 3000  # Adjust the container port as needed
 
