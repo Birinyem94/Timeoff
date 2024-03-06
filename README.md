@@ -6,7 +6,7 @@ It contains timeoff-management application (https://github.com/timeoff-managemen
 
 Technologies Used:
 Container Service: AWS Elastic Kubernetes Service (EKS) for container orchestration.
-CI/CD Automation: Github Action for building, testing, and deploying the application.
+CI/CD Automation: Github Actions for building, testing, and deploying the application.
 IaC Tool: Terraform for defining and provisioning AWS infrastructure.
 Load Balancing: AWS Elastic Load Balancer (ELB) for distributing traffic across multiple instances.
 Networking: AWS Virtual Private Cloud (VPC) for networking configuration.
