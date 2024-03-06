@@ -14,7 +14,7 @@ variable "num_of_nat_gw_eip" {
   default = 2
   
 }
-variable "private_db_subnet_cidr_blocks" {
+variable "private_subnet_cidr_blocks" {
   description = "CIDR blocks for private DB subnets"
   default     = ["10.0.7.0/24", "10.8.0/24"]
 }
