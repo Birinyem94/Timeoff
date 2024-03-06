@@ -5,7 +5,7 @@ This repository contains the IAC and CI/CD workflow for Timeoff Application in A
 It contains timeoff-management application (https://github.com/timeoff-management/timeoff-management-application) whose infrastructire has been provisioned by terraform, running in AWS as a kubernetes service (EKS), getting built and deployed automatically by a CI/CD automation in github. 
 
 Technologies Used:
-Container Service: AWS Elastic Kubernetes Service (ECS) for container orchestration.
+Container Service: AWS Elastic Kubernetes Service (EKS) for container orchestration.
 CI/CD Automation: Github Action for building, testing, and deploying the application.
 IaC Tool: Terraform for defining and provisioning AWS infrastructure.
 Load Balancing: AWS Elastic Load Balancer (ELB) for distributing traffic across multiple instances.
