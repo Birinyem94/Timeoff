@@ -21,8 +21,8 @@ Monitoring: AWS CloudWatch for monitoring the infrastructure and application log
 
 Challenges Faced:
 AWS Certificate Manager (ACM) for SSL certificates.---#issues with ACM, i was not approved for one but i managed to get it sorted 
-how to create an organization and gain access into the app 
-pod crashing at some point
+--how to create an organization and gain access into the app 
+--pod crashing at some point
 
 Improvements:
 Timeoff App: updated version
